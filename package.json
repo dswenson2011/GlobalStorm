@@ -1,0 +1,19 @@
+{
+  "name": "globalstorm",
+  "version": "0.0.0",
+  "description": "Nodejs Forum",
+  "main": "app/forum.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dswenson2011/GlobalStorm.git"
+  },
+  "author": "David Swenson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dswenson2011/GlobalStorm/issues"
+  },
+  "homepage": "https://github.com/dswenson2011/GlobalStorm#readme"
+}
