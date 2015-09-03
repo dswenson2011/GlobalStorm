@@ -26,8 +26,9 @@ var gulp = require('gulp')
 		message: 'ERROR: <%= error.message %>'
 	})
 	, errorHandler = notify(function (file) {
+		var errors;
 		if (file.csslint && !file.csslint.success) {
-			var errors = file.csslint.results.map(function (data) {
+			errors = file.csslint.results.map(function (data) {
 				if (data.error) {
 					return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
 				}
@@ -35,7 +36,7 @@ var gulp = require('gulp')
 			return file.relative + " (" + file.csslint.results.length + " errors)\n" + errors;
 		}
 		if (file.jshint && !file.jshint.success) {
-			var errors = file.jshint.results.map(function (data) {
+			errors = file.jshint.results.map(function (data) {
 				if (data.error) {
 					return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
 				}
