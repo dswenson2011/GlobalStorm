@@ -6,7 +6,16 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "node/node.d.ts": {
-      "commit": "5109e1269d6ab8e8e73b1a5e85d8ceb836d3099f"
+      "commit": "7c228c09302f51d19b6b93fcfc5decaf8e8bbaa2"
+    },
+    "orchestrator/orchestrator.d.ts": {
+      "commit": "7c228c09302f51d19b6b93fcfc5decaf8e8bbaa2"
+    },
+    "gulp/gulp.d.ts": {
+      "commit": "7c228c09302f51d19b6b93fcfc5decaf8e8bbaa2"
+    },
+    "q/Q.d.ts": {
+      "commit": "7c228c09302f51d19b6b93fcfc5decaf8e8bbaa2"
     }
   }
 }

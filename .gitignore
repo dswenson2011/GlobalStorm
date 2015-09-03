@@ -17,3 +17,7 @@ bower_components/
 
 # Typescript Definitions
 typings
+
+# Distrubition folder
+dist
+maps
