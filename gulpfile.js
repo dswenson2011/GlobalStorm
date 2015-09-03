@@ -68,36 +68,41 @@ gulp.task('build', ['clean:build'], function () {
 	gulp.start('js');
 });
 
+gulp.task('default', ['build', 'watch']);
+
+gulp.task('watch', function () {
+	gulp.watch(['src/css/*.scss', 'src/css/**/*.scss'], ['css']);
+	gulp.watch(['src/scripts/*.coffee', 'src/scripts/**/*.coffee'], ['js']);
+});
+
 gulp.task('css', function () {
 	return gulp.src('src/css/*.scss')
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(sass())
 		.pipe(csslint())
 		.pipe(csslint.reporter())
-		.pipe(errorHandler)
+	// .pipe(errorHandler)
 		.pipe(concatCSS("dist/css/style.css"))
 		.pipe(sourcemaps.init())
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(minifyCSS({ compatibility: 'ie8' }))
 		.pipe(sourcemaps.write('maps'))
-		.pipe(plumber.stop())
 		.pipe(gulp.dest('./'))
 		.pipe(notification());
 });
 
 gulp.task('js', function () {
-	return gulp.src('src/scripts/**/*.coffee')
+	return gulp.src(['src/scripts/**/*.coffee', 'src/scripts/*.coffee'])
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(coffee({ bare: false }))
 		.pipe(jshint('.jshintrc', { fail: true }))
 		.pipe(jshint.reporter(stylish))
-		.pipe(errorHandler)
+	// .pipe(errorHandler)
 		.pipe(concat('app.js'))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(sourcemaps.init())
 		.pipe(uglify())
 		.pipe(sourcemaps.write('maps'))
-		.pipe(plumber.stop())
 		.pipe(gulp.dest('dist/js'))
 		.pipe(notification());
 });
